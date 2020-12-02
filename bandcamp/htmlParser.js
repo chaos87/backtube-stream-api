@@ -8,10 +8,10 @@ var JSON5 = require('json5');
 
 // add search-result Schema
 var ajv = new Ajv();
-ajv.addSchema(require('../schemas/search-result.json'), 'search-result');
-ajv.addSchema(require('../schemas/album-product.json'), 'album-product');
-ajv.addSchema(require('../schemas/album-info.json'), 'album-info');
-ajv.addSchema(require('../schemas/tag-result.json'), 'tag-result');
+ajv.addSchema(require('./schemas/search-result.json'), 'search-result');
+ajv.addSchema(require('./schemas/album-product.json'), 'album-product');
+ajv.addSchema(require('./schemas/album-info.json'), 'album-info');
+ajv.addSchema(require('./schemas/tag-result.json'), 'tag-result');
 
 
 linez.configure({

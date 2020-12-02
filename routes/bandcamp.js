@@ -1,7 +1,7 @@
 const express = require('express');
 // const bandcamp = require('bandcamp-scraper');
-const bandcamp = require('../tmp/bandcamp');
-const bandcampStream = require('../tmp/bandcamp/stream');
+const bandcamp = require('../bandcamp');
+const bandcampStream = require('../bandcamp/stream');
 const { promisify } = require('util');
 
 const getAlbumInfo = promisify(bandcamp.getAlbumInfo);
