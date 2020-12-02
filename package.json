@@ -7,10 +7,18 @@
   },
   "dependencies": {
     "ajv": "^4.11.8",
+<<<<<<< HEAD
+=======
+    "amazon-cognito-identity-js": "^4.3.4",
+>>>>>>> b1f1fbe35bf16e88e7f7725f9a203128bc3d8bd0
     "aws-sdk": "^2.742.0",
     "bandcamp-scraper": "^1.2.7",
     "body-parser": "^1.19.0",
     "cheerio": "^0.22.0",
+<<<<<<< HEAD
+=======
+    "cognito-express": "^2.0.18",
+>>>>>>> b1f1fbe35bf16e88e7f7725f9a203128bc3d8bd0
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -24,11 +32,19 @@
     "jwk-to-pem": "^2.0.4",
     "linez": "^4.1.4",
     "moment": "^2.29.1",
+<<<<<<< HEAD
+=======
+    "mongoose": "^5.10.11",
+>>>>>>> b1f1fbe35bf16e88e7f7725f9a203128bc3d8bd0
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4",
     "request": "^2.88.2",
     "scrape-it": "^3.3.2",
+<<<<<<< HEAD
+=======
+    "socket.io": "^2.3.0",
+>>>>>>> b1f1fbe35bf16e88e7f7725f9a203128bc3d8bd0
     "stream": "0.0.2",
     "tinyreq": "^3.2.5",
     "util": "^0.12.3",
