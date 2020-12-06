@@ -16,30 +16,27 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-bandcampRouter.post('/search', cors(), function (req, res) {
+bandcampRouter.post('/search', function (req, res) {
     return bandcampSearch(req.body).then(
         response => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
             res.send(response)
         }
     )
     .catch(e => res.status(400).send(e.stack))
 })
 
-bandcampRouter.post('/albums', cors(), function (req, res) {
+bandcampRouter.post('/albums', function (req, res) {
     return getAlbumUrls(req.body.url).then(
         response => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
             res.send(response)
         }
     )
     .catch(e => res.status(400).send(e.stack))
 })
 
-bandcampRouter.post('/songs', cors(), function (req, res) {
+bandcampRouter.post('/songs', function (req, res) {
     return getAlbumInfo(req.body.url).then(
         response => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
             res.send(response)
         }
     )

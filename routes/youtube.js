@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const ytdl = require('ytdl-core')
 const FFmpeg = require('fluent-ffmpeg')
 const { PassThrough } = require('stream')
@@ -12,7 +11,7 @@ var corsOptions = {
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-youtubeRouter.get('/stream', cors(corsOptions), (req, res) => {
+youtubeRouter.get('/stream', (req, res) => {
     const requestUrl = `http://youtube.com/watch?v=${req.query.videoId}`
     res.setHeader('Access-Control-Allow-Origin', '*');
     opt = {
@@ -38,7 +37,7 @@ youtubeRouter.get('/stream', cors(corsOptions), (req, res) => {
     stream.pipe(res)
 });
 
-youtubeRouter.get('/info', cors(corsOptions), async (req, res) => {
+youtubeRouter.get('/info', async (req, res) => {
     let info = await ytdl.getBasicInfo(req.query.videoId);
     res.json(info)
 })
