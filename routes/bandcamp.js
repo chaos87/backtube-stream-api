@@ -47,7 +47,7 @@ bandcampRouter.get('/stream', cors(corsOptions), function (req, res) {
     bandcampStream.getTrack(req.query.url).then(function(stream) {
         stream.pipe(res)
     }).catch(function(err) {
-        res.status(500).send(err.message)
+        res.status(500).json({message: err.message})
     });
 })
 

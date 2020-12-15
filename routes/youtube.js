@@ -28,7 +28,7 @@ youtubeRouter.get('/stream', (req, res) => {
           stream.emit('error', error)
           video.end()
           console.log('Error with video ', req.query.videoId, error.message)
-          res.status(500).send(error.message);
+          res.status(500).json({message: error.message})
       })
     })
 
