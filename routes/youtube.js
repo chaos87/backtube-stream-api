@@ -23,7 +23,7 @@ youtubeRouter.get('/stream', (req, res) => {
     let stream = file ? fs.createWriteStream(file) : new PassThrough()
     const ffmpeg = new FFmpeg(video)
     process.nextTick(() => {
-      const output = ffmpeg.pipe(stream)
+      const output = ffmpeg.format('mp3').pipe(stream)
       ffmpeg.on('error', error => {
           stream.emit('error', error)
           video.end()
