@@ -18,12 +18,12 @@ youtubeRouter.get('/stream', (req, res) => {
         audioFormat: 'mp3',
         quality: 'lowestaudio'
     }
-    const video = ytdl(requestUrl, opt)
+    const video = ytdl(requestUrl, { filter: 'audioonly', dlChunkSize: 0 })
     const { file, audioFormat } = opt
     let stream = file ? fs.createWriteStream(file) : new PassThrough()
     const ffmpeg = new FFmpeg(video)
     process.nextTick(() => {
-      const output = ffmpeg.format(audioFormat).pipe(stream)
+      const output = ffmpeg.pipe(stream)
       ffmpeg.on('error', error => {
           stream.emit('error', error)
           video.end()

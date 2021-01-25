@@ -3,7 +3,8 @@ const cors = require('cors');
 // const bandcamp = require('bandcamp-scraper');
 const bandcamp = require('../bandcamp');
 const bandcampStream = require('../bandcamp/stream');
-const { promisify } = require('util');
+
+const promisify = f => (...args) => new Promise((a,b)=>f(...args, (err, res) => err ? b(err) : a(res)));
 
 const getAlbumInfo = promisify(bandcamp.getAlbumInfo);
 const getAlbumUrls = promisify(bandcamp.getAlbumUrls);
