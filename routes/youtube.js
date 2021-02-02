@@ -15,15 +15,14 @@ youtubeRouter.get('/stream', (req, res) => {
     const requestUrl = `http://youtube.com/watch?v=${req.query.videoId}`
     res.setHeader('Access-Control-Allow-Origin', '*');
     opt = {
-        audioFormat: 'mp3',
+        filter: 'audioonly',
         quality: 'lowestaudio'
     }
     const video = ytdl(requestUrl, opt)
-    const { file, audioFormat } = opt
-    let stream = file ? fs.createWriteStream(file) : new PassThrough()
+    let stream = new PassThrough()
     const ffmpeg = new FFmpeg(video)
     process.nextTick(() => {
-      const output = ffmpeg.format(audioFormat).pipe(stream)
+      const output = ffmpeg.format('mp3').pipe(stream)
       ffmpeg.on('error', error => {
           stream.emit('error', error)
           video.end()
